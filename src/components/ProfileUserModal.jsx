@@ -21,17 +21,16 @@ const ProfileModal = ({ activeUser, users, modalOpened }) => {
           {users.map(
             (user) =>
               activeUser.id !== user.id && (
-                <li
-                  key={user.id}
-                  className='flex items-center  py-2 border-t border-gray-300 px-10'
-                >
-                  <img
-                    className='w-9 rounded-full'
-                    src={user.profilepicture}
-                    alt=''
-                  />
-                  <p className='ml-2'>{user.name}</p>
-                </li>
+                <Link key={user.id} to={`/profile/${user.id}`}>
+                  <li className='flex items-center  py-2 border-t border-gray-300 px-10'>
+                    <img
+                      className='w-9 rounded-full'
+                      src={user.profilepicture}
+                      alt=''
+                    />
+                    <p className='ml-2'>{user.name}</p>
+                  </li>
+                </Link>
               )
           )}
         </ul>
