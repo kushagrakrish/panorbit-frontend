@@ -18,19 +18,19 @@ const Navbar = ({ pageTitle }) => {
     dispatch(fetchUsers());
     dispatch(fetchActiveUser(id));
 
-    // const handleOutsideClick = (event) => {
-    //   if (
-    //     !modalRef.current.contains(event.target) &&
-    //     !profileInfoRef.current.contains(event.target)
-    //   ) {
-    //     setModalOpened(false);
-    //   }
-    // };
-    // window.addEventListener("click", handleOutsideClick);
+    const handleOutsideClick = (event) => {
+      if (
+        !modalRef.current.contains(event.target) &&
+        !profileInfoRef.current.contains(event.target)
+      ) {
+        setModalOpened(false);
+      }
+    };
+    window.addEventListener("click", handleOutsideClick);
 
-    // return () => {
-    //   window.removeEventListener("click", handleOutsideClick);
-    // };
+    return () => {
+      window.removeEventListener("click", handleOutsideClick);
+    };
   }, [dispatch, id]);
 
   return (
@@ -42,7 +42,7 @@ const Navbar = ({ pageTitle }) => {
         <div className='relative p-3'>
           <div
             className=' flex gap-3 items-center cursor-pointer'
-            onClick={() => setModalOpened((state) => !state)}
+            onClick={() => setModalOpened(!modalOpened)}
             ref={profileInfoRef}
           >
             <img
@@ -57,7 +57,11 @@ const Navbar = ({ pageTitle }) => {
           </div>
 
           <div className='profileModalWrapper' ref={modalRef}>
-            <ProfileUserModal />
+            <ProfileUserModal
+              activeUser={activeUser}
+              users={users}
+              modalOpened={!modalOpened}
+            />
           </div>
         </div>
       </div>

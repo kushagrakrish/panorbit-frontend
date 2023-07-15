@@ -24,6 +24,10 @@ body {
   justify-content: center;
 }
 
+.modal-box-shadow {
+  box-shadow: 5px 5px 30px 5px #00000010, -5px -5px 30px 5px #00000010;
+}
+
 ::-webkit-scrollbar {
   width: 7px;
 }
