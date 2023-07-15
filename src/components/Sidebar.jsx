@@ -62,7 +62,7 @@ const Sidebar = () => {
             >
               Posts
               {active === "posts" && (
-                <div className='active absolute right-[35%] transform translate-x-[-50%] top-2 bg-white py-1 px-2 rounded-tl-full rounded-bl-full rounded-br-[10%]'>
+                <div className='active absolute -right-[68px] transform translate-x-[-50%] top-2 bg-white py-2 px-2.5 rounded-tl-full rounded-bl-full rounded-br-[10%]'>
                   <AiOutlineRight color='#BDC5D4' strokeWidth='50' />
                 </div>
               )}
@@ -77,7 +77,7 @@ const Sidebar = () => {
             >
               Gallery
               {active === "gallery" && (
-                <div className='active absolute right-[35%] transform translate-x-[-50%] top-2 bg-white py-1 px-2 rounded-tl-full rounded-bl-full rounded-br-[10%]'>
+                <div className='active absolute -right-[68px] transform translate-x-[-50%] top-2 bg-white py-2 px-2.5 rounded-tl-full rounded-bl-full rounded-br-[10%]'>
                   <AiOutlineRight color='#BDC5D4' strokeWidth='50' />
                 </div>
               )}
@@ -92,7 +92,7 @@ const Sidebar = () => {
             >
               ToDo
               {active === "todo" && (
-                <div className='active absolute right-[35%] transform translate-x-[-50%] top-2 bg-white py-1 px-2 rounded-tl-full rounded-bl-full rounded-br-[10%]'>
+                <div className='active absolute -right-[68px] transform translate-x-[-50%] top-2 bg-white py-2 px-2.5 rounded-tl-full rounded-bl-full rounded-br-[10%]'>
                   <AiOutlineRight color='#BDC5D4' strokeWidth='50' />
                 </div>
               )}
