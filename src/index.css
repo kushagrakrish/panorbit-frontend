@@ -32,3 +32,26 @@ body {
   background-color: #d8d8d8;
   border-radius: 20px;
 }
+
+@media only screen and (max-width: 750px) {
+  .sidebar {
+    left: -500px;
+    height: 100%;
+    width: 50vw;
+    padding: 5px;
+    border-radius: 0px;
+    z-index: 99;
+  }
+  .active {
+    display: none;
+  }
+  .sidebar li {
+    padding-left: 10px;
+  }
+  .menu-icon {
+    display: block;
+  }
+  .sidebar.mobileDrawerActive {
+    left: 0px;
+  }
+}

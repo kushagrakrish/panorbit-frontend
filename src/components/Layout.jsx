@@ -7,7 +7,7 @@ const Layout = ({ children, pageTitle }) => {
     <>
       <div className='overflow-x-hidden mb-[68px] p-12'>
         <Sidebar />
-        <main className='ml-0 w-full p-0 md:ml-72 md:pl-12'>
+        <main className='ml-0 w-full p-0 md:pl-72 md:ml-5'>
           <Navbar pageTitle={pageTitle} />
           {children}
         </main>
