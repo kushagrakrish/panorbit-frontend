@@ -2,8 +2,9 @@ import { useState } from "react";
 import { MdKeyboardArrowUp, MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { RxChatBubble } from "react-icons/rx";
 import { useSelector } from "react-redux";
+import MessageBox from "./MessageBox";
 
-const ChatMessenger = () => {
+const ChatMessenger = ({ user }) => {
   const [chatMessengerActive, setChatMessengerActive] = useState(false);
   const [messageBoxActive, setMessageBoxActive] = useState(false);
   const [inboxUser, SetInboxUser] = useState("");
@@ -16,10 +17,12 @@ const ChatMessenger = () => {
   };
   return (
     <>
-      <div className='fixed right-8 md:right-7 bottom-5'>
-        {/* {messageBoxActive && chatMessengerActive && (
-          <ChatMessageBox user={inboxUser} />
-        )} */}
+      <div className='fixed right-8 md:right-7 bottom-5 flex items-center gap-5'>
+        <div>
+          {messageBoxActive && chatMessengerActive && (
+            <MessageBox user={inboxUser} />
+          )}
+        </div>
 
         <div className=' w-60 overflow-hidden rounded-tl-2xl rounded-tr-2xl border border-[#2C65C8]'>
           <div
