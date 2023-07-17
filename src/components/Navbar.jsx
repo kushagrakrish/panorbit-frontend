@@ -56,7 +56,7 @@ const Navbar = ({ pageTitle }) => {
             </p>
           </div>
 
-          <div className='profileModalWrapper' ref={modalRef}>
+          <div ref={modalRef}>
             <ProfileUserModal
               activeUser={activeUser}
               users={users}

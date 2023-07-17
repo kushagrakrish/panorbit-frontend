@@ -7,13 +7,10 @@ import UserDetails from "../components/UserDetails";
 import UserAddress from "../components/UserAddress";
 
 const Profile = () => {
-  // get ActiveUser from Store
   const user = useSelector((state) => state.activeUser.activeUser);
-  // Get Required user Id
   const { id } = useParams();
   const dispatch = useDispatch();
 
-  // Fetch data of required user using ID
   useEffect(() => {
     dispatch(fetchActiveUser(id));
   }, [dispatch, id]);

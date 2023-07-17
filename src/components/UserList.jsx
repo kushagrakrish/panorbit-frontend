@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const UserList = ({ users }) => {
   return (
     <>
-      <ul className='users px-0 py-6 flex flex-col list-none h-[420px] overflow-y-scroll'>
+      <ul className=' px-0 py-6 flex flex-col list-none h-[420px] overflow-y-scroll'>
         {users.map((user) => (
           <Link
             key={user.id}

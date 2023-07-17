@@ -12,6 +12,16 @@
 body {
   overflow-x: hidden;
 }
+.active {
+  position: absolute;
+  right: -68px;
+  transform: translateX(-50%);
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 2px;
+  border-radius: 50%;
+}
 
 .landingPage {
   background-image: url("./assets/bg.png");

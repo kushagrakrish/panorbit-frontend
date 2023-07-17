@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import usersSlice from "../pages/usersSlice";
 import singleUserSlice from "../pages/singleUserSlice";
 
-// Redux Store to maintain application state
+// Redux Store to maintain Global State
 const store = configureStore({
   reducer: {
     activeUser: singleUserSlice, // Maintains state of individual user

@@ -7,16 +7,16 @@ const ProfileModal = ({ activeUser, users, modalOpened }) => {
         modalOpened && "hidden"
       } modal-box-shadow px-7 py-3 rounded-3xl absolute w-80 top-full md:right-20 -right-[50px] bg-white block`}
     >
-      <div className='activeUserProfile flex flex-col items-center py-2.5 px-10'>
+      <div className='flex flex-col items-center py-2.5 px-10'>
         <img
           className='w-20 rounded-full'
           src={activeUser.profilepicture}
           alt=''
         />
         <p className='text-lg font-medium mt-2'>{activeUser.name}</p>
-        <p className='userEmail text-gray-500 text-base'>{activeUser.email}</p>
+        <p className='text-gray-500 text-base'>{activeUser.email}</p>
       </div>
-      <div className='otherUsers'>
+      <div>
         <ul className='h-32 overflow-auto '>
           {users.map(
             (user) =>

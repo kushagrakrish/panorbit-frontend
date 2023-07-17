@@ -1,26 +1,48 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
-import { AiOutlineRight, AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import React, { useEffect, useState } from "react";
+import { AiOutlineClose, AiOutlineMenu, AiOutlineRight } from "react-icons/ai";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 const Sidebar = () => {
   const [active, setActive] = useState("");
   const [mobileDrawerActive, setmobileDrawerActive] = useState(false);
   const { id } = useParams("id");
+  const menuItems = [
+    {
+      path: `/profile/${id}`,
+      label: "Profile",
+      key: "profile",
+    },
+    {
+      path: `/profile/${id}/posts`,
+      label: "Posts",
+      key: "posts",
+    },
+    {
+      path: `/profile/${id}/gallery`,
+      label: "Gallery",
+      key: "gallery",
+    },
+    {
+      path: `/profile/${id}/todo`,
+      label: "ToDo",
+      key: "todo",
+    },
+  ];
   const location = useLocation();
 
   useEffect(() => {
     const path = location.pathname;
-    if (path === "/profile/" + id) {
+    if (path === `/profile/${id}`) {
       setActive("profile");
-    } else if (path.includes("/profile/" + id + "/posts")) {
+    } else if (path.includes(`/profile/${id}/posts`)) {
       setActive("posts");
-    } else if (path.includes("/profile/" + id + "/gallery")) {
+    } else if (path.includes(`/profile/${id}/gallery`)) {
       setActive("gallery");
-    } else if (path.includes("/profile/" + id + "/todo")) {
+    } else if (path.includes(`/profile/${id}/todo`)) {
       setActive("todo");
     }
   }, [location, id]);
+
   return (
     <>
       <div
@@ -38,66 +60,23 @@ const Sidebar = () => {
             <AiOutlineClose />
           )}
         </div>
-        <ul className=' list-none w-full'>
-          <Link to={`/profile/${id}`} className='text-white text-lg'>
-            <li
-              className={`relative py-4 border-b border-white ${
-                active === "profile" ? "text-white" : "text-gray-400"
-              }`}
-            >
-              Profile
-              {active === "profile" && (
-                <div className='active absolute -right-[68px] transform translate-x-[-50%] top-2 bg-white py-2 px-2.5 rounded-tl-full rounded-bl-full rounded-br-[10%]'>
-                  <AiOutlineRight color='#BDC5D4' strokeWidth='50' />
-                </div>
-              )}
-            </li>
-          </Link>
-
-          <Link to={`/profile/${id}/posts`} className='text-white text-lg'>
-            <li
-              className={`relative py-4 border-b border-white ${
-                active === "posts" ? "text-white" : "text-gray-400"
-              }`}
-            >
-              Posts
-              {active === "posts" && (
-                <div className='active absolute -right-[68px] transform translate-x-[-50%] top-2 bg-white py-2 px-2.5 rounded-tl-full rounded-bl-full rounded-br-[10%]'>
-                  <AiOutlineRight color='#BDC5D4' strokeWidth='50' />
-                </div>
-              )}
-            </li>
-          </Link>
-
-          <Link to={`/profile/${id}/gallery`} className='text-white text-lg'>
-            <li
-              className={`relative py-4 border-b border-white ${
-                active === "gallery" ? "text-white" : "text-gray-400"
-              }`}
-            >
-              Gallery
-              {active === "gallery" && (
-                <div className='active absolute -right-[68px] transform translate-x-[-50%] top-2 bg-white py-2 px-2.5 rounded-tl-full rounded-bl-full rounded-br-[10%]'>
-                  <AiOutlineRight color='#BDC5D4' strokeWidth='50' />
-                </div>
-              )}
-            </li>
-          </Link>
-
-          <Link to={`/profile/${id}/todo`} className='text-white text-lg'>
-            <li
-              className={`relative py-4 border-b border-white ${
-                active === "todo" ? "text-white" : "text-gray-400"
-              }`}
-            >
-              ToDo
-              {active === "todo" && (
-                <div className='active absolute -right-[68px] transform translate-x-[-50%] top-2 bg-white py-2 px-2.5 rounded-tl-full rounded-bl-full rounded-br-[10%]'>
-                  <AiOutlineRight color='#BDC5D4' strokeWidth='50' />
-                </div>
-              )}
-            </li>
-          </Link>
+        <ul className='list-none w-full'>
+          {menuItems.map((item) => (
+            <Link to={item.path} className='text-white text-lg' key={item.key}>
+              <li
+                className={`relative py-4 border-b border-white ${
+                  active === item.key ? "text-white" : "text-gray-400"
+                }`}
+              >
+                {item.label}
+                {active === item.key && (
+                  <div className=' absolute -right-[68px] transform translate-x-[-50%] top-2 bg-white py-2 px-2.5 rounded-tl-full rounded-bl-full rounded-br-[10%]'>
+                    <AiOutlineRight color='#BDC5D4' strokeWidth='50' />
+                  </div>
+                )}
+              </li>
+            </Link>
+          ))}
         </ul>
       </div>
     </>

@@ -19,7 +19,7 @@ const LandingPage = () => {
             Select an account
           </h4>
 
-          <div className='users-wrapper px-10 pb-30 overflow-y-scroll'>
+          <div className='px-10 pb-30 overflow-y-scroll'>
             <UserList users={users} />
           </div>
         </div>
