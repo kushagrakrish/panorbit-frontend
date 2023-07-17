@@ -34,7 +34,7 @@ const UserAddress = ({ user }) => {
             title='map'
             width='100%'
             height='400px'
-            src={`https://maps.google.com/maps?q=${user.address?.geo.lat},${user.address?.geo.lng}&hl=es;&output=embed`}
+            src={`https://maps.google.com/maps?q=${user?.address?.geo?.lat},${user.address?.geo?.long}&hl=es;&output=embed`}
           ></iframe>
           <div className='latLongDetails flex justify-end p-2'>
             <p>

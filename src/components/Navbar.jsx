@@ -11,7 +11,7 @@ const Navbar = ({ pageTitle }) => {
   const dispatch = useDispatch();
   const modalRef = useRef();
   const profileInfoRef = useRef();
-  const { activeUser, loading } = useSelector((state) => state.activeUser);
+  const { activeUser } = useSelector((state) => state.activeUser);
   const users = useSelector((state) => state.users.users);
 
   useEffect(() => {

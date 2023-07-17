@@ -9,7 +9,6 @@ const ChatMessenger = ({ user }) => {
   const [messageBoxActive, setMessageBoxActive] = useState(false);
   const [inboxUser, SetInboxUser] = useState("");
   const users = useSelector((state) => state.users.users);
-  console.log(users);
 
   const handleChatUserClick = (user) => {
     setMessageBoxActive((state) => !state);

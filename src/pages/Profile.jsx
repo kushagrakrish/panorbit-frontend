@@ -9,7 +9,6 @@ import UserAddress from "../components/UserAddress";
 const Profile = () => {
   // get ActiveUser from Store
   const user = useSelector((state) => state.activeUser.activeUser);
-
   // Get Required user Id
   const { id } = useParams();
   const dispatch = useDispatch();
