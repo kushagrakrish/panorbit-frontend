@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+const API_URL = "https://panorbit.in/api/users.json";
+
 const initialState = {
   loading: true,
   users: [],
@@ -7,7 +9,7 @@ const initialState = {
 
 // Fetches user's from api
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
-  const response = await fetch(`https://panorbit.in/api/users.json`);
+  const response = await fetch(API_URL);
   const data = await response.json();
   return data.users;
 });

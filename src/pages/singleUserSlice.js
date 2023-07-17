@@ -1,5 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+const API_URL = "https://panorbit.in/api/users.json";
+
 const initialState = {
   loading: true,
   activeUser: {},
@@ -9,7 +11,7 @@ const initialState = {
 export const fetchActiveUser = createAsyncThunk(
   "users/fetchActiveUser",
   async (id) => {
-    const response = await fetch(`https://panorbit.in/api/users.json`);
+    const response = await fetch(API_URL);
     const data = await response.json();
     const user = data.users.find((user) => user.id === Number(id));
     if (!user) throw new Error("User not found");
